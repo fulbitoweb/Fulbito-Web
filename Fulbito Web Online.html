@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        #link {
+            display: none;
+        }
+        #explicacion {
+            display: none;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <p id="loading">Loading...</p>
+    <a id="link" href="#">Descargar archivos</a>
+    <p id="Explicación">Explicación, esta pagina aun que parezca 18+ es para ocultarlo de las empresas como denuvo anti crack webs. Consulta en nuestro discord donde hay juegos y una comunidad:https://discord.gg/6bhYqGZFUA</p>
+
+    <script>
+        // Simulando la función del bot que detecta una nueva descarga
+        function botDetectaNuevoLink() {
+            // Aquí podrías hacer una solicitud a un servidor para verificar si hay algo nuevo para descargar
+            // Simulamos un "enlace encontrado" con un timeout de 3 segundos
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(true);  // Cambia a `false` si no hay nada nuevo
+                }, 3000);
+            });
+        }
+
+        // Ejecuta la detección
+        botDetectaNuevoLink().then(nuevoLinkDetectado => {
+            if (nuevoLinkDetectado) {
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("link").style.display = "block";
+                document.getElementById("explicacion").style.display = "block";
+                document.getElementById("link").href = "https://fitgirl-repacks.site/"; // Cambia esto por el enlace real
+            } else {
+                document.getElementById("loading").textContent = "No hay nuevas descargas disponibles.";
+            }
+        });
+    </script>
+</body>
+</html>
